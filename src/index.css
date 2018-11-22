@@ -14,6 +14,15 @@ div{
   box-sizing: border-box
 }
 
+hr{
+
+  height: 1px;
+  color: #4c5769;
+  background-color: #4c5769;
+  border: none;
+  margin:20px 0px
+} 
+
 .headerBackColor{
   background-color: #303c4e;
   color:#8190a5
@@ -86,6 +95,7 @@ div{
 }
 
 .react-grid-item {
+  flex:none;
   background-color: #273142;
   border: 2px solid #2c3648;
   border-radius: 5px;
@@ -170,21 +180,24 @@ th.MuiTableCell-head-140{
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
+  padding:2px
   
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
   
-   background: #273142; 
-   padding:5px
+   background-color: #273142; 
+   color: #273142; 
 }
 
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #8393a8; 
-  border-radius: 10px;
+  background: #8393a8;
+
+  border-radius: 25px;
  
 }
 
@@ -294,6 +307,16 @@ p.MuiFormHelperText-root-185{
   justify-content: flex-start;
   align-items: center;
   
+}
+
+.side-menu-header-color{
+  color:#4c5769
+}
+
+.side-menu-header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center
 }
 
 .green-dot{

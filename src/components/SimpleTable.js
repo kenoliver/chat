@@ -56,9 +56,9 @@ const styles = theme => ({
 
 });
 
-let id = 0;
+// var id = 0;
 function createData(sym, wgt, reg1, vol1, price1,price2,vol2,reg2) {
-  id += 1;
+  // id += 1;
   return { sym, wgt, reg1, vol1, price1,price2,vol2,reg2} ;
 }
 

@@ -12,6 +12,7 @@
     "react-md": "^1.9.0",
     "react-redux": "^5.1.0",
     "react-scripts": "2.1.1",
+    "react-table": "^6.8.6",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
     "ws": "^6.1.0"
@@ -30,5 +31,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "prop-types": "^15.6.2"
+  }
 }
