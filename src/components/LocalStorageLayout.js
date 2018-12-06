@@ -3,7 +3,7 @@ import RGL, { WidthProvider } from "react-grid-layout";
 import { SideBar } from "../containers/SideBar";
 import { MessagesList } from "../containers/MessagesList";
 import { AddMessage } from "../containers/AddMessage";
-
+import  BulletinBoardItem  from "./BulletinBoardItem";
 import MarketTable from "./MarketTable"
 
 
@@ -24,7 +24,62 @@ class LocalStorageLayout extends React.PureComponent {
     super(props);
 
     this.state = {
-      layout: JSON.parse(JSON.stringify(originalLayout))
+      layout: JSON.parse(JSON.stringify(originalLayout)),
+      orders:[
+        {
+          title:"Atlantic Salmon Farmed Superior HOG",
+          contract:{
+            location:"NORWAY",
+            delivery: "FOB Oslo",
+            region:"1",
+            weightClass: "2-3",
+            certification:"ASC/MSC",
+            unit:"KG",
+            currency: "EUR"
+          },
+          location:"NORWAY",
+          delivery: "FOB Oslo",
+          region:"1",
+          weightClass: "2-3",
+          certification:"ASC/MSC",
+          unit:"KG",
+          currency: "EUR",
+          direction:"BUYER",
+          price:"5.5",
+          volume: "20",
+          counters:[
+            {name: "AAA", price:"6.0",volume:"25"},
+            {name: "BBB", price:"6.5",volume:"20"},
+            {name: "CCC", price:"6.7",volume:"25"},
+            {name: "DDD", price:"7.5",volume:"20"},
+          ]        
+        },
+        {
+          title:"Coho Salmon Farmed Superior HOG",
+          contract:{
+            market:"Salmon",
+              location:"Chile",
+          delivery: "FOB Miami",
+          region:"1",
+          weightClass: "2-3",
+          certification:"ASC/MSC",
+          unit:"KG",
+          currency: "EUR",
+          },
+          unit:"LBS",
+          currency: "USD",
+          direction:"SELLER",
+          price:"7.0",
+          volume:"45",
+          counters:[
+            {name: "AAA", price:"6.9",volume:"25"},
+            {name: "BBB", price:"6.0",volume:"20"},
+            {name: "CCC", price:"5.5",volume:"25"},
+            {name: "DDD", price:"5.0",volume:"20"},
+          ]
+          
+        }]
+      
     };
 
     this.onLayoutChange = this.onLayoutChange.bind(this);
@@ -91,7 +146,29 @@ class LocalStorageLayout extends React.PureComponent {
         <div className="flex-item-lower"><AddMessage/></div>
       </div>
       </div>
-    </div>
+    </div> 
+    <div style={{padding:"10px"}} key="8" data-grid={{ w: 2, h: 3, x: 14, y: 0 }}>
+            <div className="text">BULLETIN BOARD</div>
+            <div>
+{this.state.orders.map(order=>(
+ <BulletinBoardItem
+              order = {order}
+              />
+
+
+)
+              
+    
+
+              
+            
+            )}
+
+
+            </div>
+            
+         
+          </div>
         </ReactGridLayout>
        
         
