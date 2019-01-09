@@ -1,5 +1,5 @@
 import React from "react";
-import RGL, { WidthProvider } from "react-grid-layout";
+import GridLayout, { WidthProvider } from "react-grid-layout";
 import { SideBar } from "../containers/SideBar";
 import { MessagesList } from "../containers/MessagesList";
 import { AddMessage } from "../containers/AddMessage";
@@ -7,7 +7,7 @@ import  BulletinBoardItem  from "./BulletinBoardItem";
 import MarketTable from "./MarketTable"
 
 
-const ReactGridLayout = WidthProvider(RGL);
+// const ReactGridLayout = WidthProvider(RGL);
 const originalLayout = getFromLS("layout") || [];
 /**
  * This layout demonstrates how to sync to localstorage.
@@ -102,36 +102,39 @@ class LocalStorageLayout extends React.PureComponent {
   render() {
     return (
       
-<ReactGridLayout
+<GridLayout
           {...this.props}
           layout={this.state.layout}
           onLayoutChange={this.onLayoutChange}
           useCSSTransforms={false}
-          measureBeforeMount={true}
+          measureBeforeMount={false}
           draggableHandle=".text"
+          width={10000}
+          autoSize={true}
           // compactType={this.state.compactType}
           // preventCollision={!this.state.compactType}
         >
-          <div style={{display:'flex',flexDirection:'column'}} key="1" data-grid={{ w: 2, h: 3, x: 0, y: 0 }}>
+          <div style={{display:'flex',flexDirection:'column'}} key="1" data-grid={{ w: 2, h: 3, x: 0, y: 0,maxW:3  }}>
             <div className="text">BITCOIN</div>
             <MarketTable/>
           </div>
-          <div style={{display:'flex',flexDirection:'column'}} key="2" data-grid={{ w: 2, h: 3, x: 2, y: 0 }}>
+          <div style={{display:'flex',flexDirection:'column'}} key="2" data-grid={{ w: 2, h: 3, x: 2, y: 0,maxW:3 }}>
             <div className="text ">SALMON FAR GBP</div><MarketTable/>
           </div>
-          <div style={{display:'flex',flexDirection:'column'}} key="3" data-grid={{ w: 2, h: 3, x: 4, y: 0 }}>
+          <div style={{display:'flex',flexDirection:'column'}} key="3" data-grid={{ w: 2, h: 3, x: 4, y: 0,maxW:3  }}>
             <div className="text">SALMON SCT GBP<MarketTable/></div>
           </div>
-          <div style={{display:'flex',flexDirection:'column'}} key="4" data-grid={{ w: 2, h: 3, x: 6, y: 0 }}>
+          <div style={{display:'flex',flexDirection:'column'}} key="4" data-grid={{ w: 2, h: 3, x: 6, y: 0,maxW:3  }}>
             <div className="text">SALMON CHI USD</div><MarketTable/>
           </div>
-          <div key="5" data-grid={{ w: 2, h: 3, x: 8, y: 0 }}>
+          <div key="5" data-grid={{ w: 2, h: 3, x: 8, y: 0,maxW:3  }}>
             <div className="text">ORDERS</div>
           </div>
-          <div key="6" data-grid={{ w: 2, h: 3, x: 10, y: 0 }}>
+          <div key="6" data-grid={{ w: 2, h: 3, x: 10, y: 0,maxW:3  }}>
             <div className="text">TRADES</div>
           </div>
-          <div key="7" data-grid={{ w: 2, h: 3, x: 12, y: 0 }}>
+          <div key="7" data-grid={{ w: 2, h: 3, x: 12, y: 0,maxW:3 
+           }}>
         
            
           <div className="flex-container">
@@ -169,7 +172,7 @@ class LocalStorageLayout extends React.PureComponent {
             
          
           </div>
-        </ReactGridLayout>
+        </GridLayout>
        
         
      
